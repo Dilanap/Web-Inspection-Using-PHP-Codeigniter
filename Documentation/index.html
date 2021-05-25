@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;MultiStep Form With Ajax Submit&rdquo; Documentation by &ldquo;Momin Iqbal&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;MultiStep Form With Ajax Submit&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 15/06/2017<br>
+					By: Momin Iqbal<br>
+					Email: <a href="mailto:iahmed964@gmail.com">iahmed964@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my script. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/iqbal1486">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+		
+			<li><a href="#server_validation">PHP Code Explanation</a> </li>
+			
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>This script is a fixed layout with single columns. All of the information within the main content area is nested within a div. Below you can check the snippet for single step. One can add another step by copying below formatted fieldset structure and putting next to any fieldset structure. One need to add 'li' on above fieldset for label. Here is the general structure.</p>
+		
+		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+		<img src="assets/images/htmlstructure_2.png" alt="HTML Structure" />
+		
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>I'm using sinlge CSS file in this script. This file contains some general styling, such as anchor tag colors, font-sizes, etc. Keep in mind, that these values might be overridden somewhere else in the file.</p> 
+
+		<p>The file named mutli-step.css also has stling for Title, progressbar, progress connector, alert messages, the close button.</p> 
+
+
+		<img src="assets/images/htmlstructure_3.png" alt="HTML Structure" />
+		
+		<p>If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p> 
+
+		<p>You can override the css by creating new css and linking the css below the main css, so that all properties will be override without using '!important'.</p>
+
+		
+		<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This script use imports three jQuery files.</p>
+		
+		<ol>
+			<li>jquery-3.2.1.min.js</li>
+			<li>jquery-ui.min.js</li>
+			<li>mutli-step.js</li>
+		</ol>
+		  
+		<ol>
+			<li>jQuery is a Javascript library that greatly reduces the amount of code that you must write.</li>
+			<li>Most of the animation in this site is carried out from the mutli-step.js scripts. There are a few functions worth looking over.
+
+<pre>	
+checkPasswordMatch() function to check compare passwords
+
+</pre>
+
+Below is the code for validation purpose when user click on next button or focus out of the input box.
+<pre>
+if($('.next').data('clicked')) {
+	/*If user click direct Next Button without filling the required details*/
+	$(".step_required").each(function( index ) {
+        if (!$(this).val())
+			$(this).addClass('error').parent().find('mark').removeClass('validate').addClass('error');
+		else
+			$(this).removeClass('error').parent().find('mark').removeClass('error').addClass('valid');
+	});
+
+}else{
+	/*Individual Focus out value check*/
+	if (!$(this).val())
+			$(this).addClass('error').parent().find('mark').removeClass('validate').addClass('error');
+		else
+			$(this).removeClass('error').parent().find('mark').removeClass('error').addClass('valid');
+
+}
+</pre>
+		</ol>
+		
+		
+		
+		<hr>
+		<h3 id="server_validation"><strong>D) PHP Script</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This script include the php validation.</p>
+		<p>There are two files included in php:</p>
+		<ol>
+			<li>ajax_submit.php</li>
+			<li>global_variable.php</li>
+		</ol>
+		
+		<p>First file have final code on submit for server side validation using php.</p>
+		<p>second file have global variable. You can pass the form input tag name in those variable to apply server side valiation.</p>
+
+		<hr>
+
+		<p>Once again, thank you so much for purchasing this script. As I said at the beginning, I'd be glad to help you if you have any questions relating to this script. No guarantees, but I'll do my best to assist. If you have a more general question relating to the scripts on Codecanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Momin Iqbal</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
